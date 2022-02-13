@@ -1,18 +1,18 @@
 <?php include 'connect.php';
 
-if (isset($_POST['submit'])){
-  $namefilm = $_POST['tf'];
-  $namerealisateur = $_POST['rea'];
-  $nameacteurs = $_POST['ac'];
-  $datedesortie = date('Y-m-d',strtotime ($_POST['dsf']));
- 
-  $synopsis = $_POST['Syn'];
-  
-  $dateentreeutilisateur = date('Y-m-d',strtotime ($_POST['deu']));
-  $datedesortieutilisateur = date('Y-m-d',strtotime ($_POST['dsu']));
-  
-  
-  $sql="INSERT INTO
+if (isset($_POST['submit'])) {
+  $namefilm = $_POST['Titre_du_film'];
+  $namerealisateur = $_POST['Realisateur'];
+  $nameacteurs = $_POST['Acteurs'];
+  $datedesortie = date('Y-m-d', strtotime($_POST['Date_de_sortie']));
+
+  $synopsis = $_POST['Synopsis'];
+
+  $dateentreeutilisateur = date('Y-m-d', strtotime($_POST['Date_entree_ut']));
+  $datedesortieutilisateur = date('Y-m-d', strtotime($_POST['Date_sortie_ut']));
+
+
+  $sql = "INSERT INTO
    programmation (
      `Titre_du_film`,
      `Acteurs`,
@@ -33,16 +33,15 @@ if (isset($_POST['submit'])){
   )";
 
   $stmt = $pdo->prepare($sql);
-  $stmt->bindValue(':namefilm',$namefilm);
-  $stmt->bindValue(':nameacteurs',$nameacteurs);
-  $stmt->bindValue(':namerealisateur',$namerealisateur);
-  $stmt->bindValue(':datedesortie',$datedesortie);
-  $stmt->bindValue(':synopsis',$synopsis);
-  $stmt->bindValue( ':dateentreeutilisateur', $dateentreeutilisateur);
-  $stmt->bindValue( ':datesortieutilisateur', $datedesortieutilisateur);
-  
+  $stmt->bindValue(':namefilm', $namefilm);
+  $stmt->bindValue(':nameacteurs', $nameacteurs);
+  $stmt->bindValue(':namerealisateur', $namerealisateur);
+  $stmt->bindValue(':datedesortie', $datedesortie);
+  $stmt->bindValue(':synopsis', $synopsis);
+  $stmt->bindValue(':dateentreeutilisateur', $dateentreeutilisateur);
+  $stmt->bindValue(':datesortieutilisateur', $datedesortieutilisateur);
+
   $stmt->execute();
-  
 }
 
 
@@ -70,46 +69,44 @@ if (isset($_POST['submit'])){
       <div class="form-group">
         <label>Titre du film</label>
         <input type="text" class="form-control" placeholder="Entrer le titre du film" 
-        name="tf" >
+        name="Titre_du_film">
 
       </div>
       <div class="form-group">
         <label>Réalisateur</label>
-        <input type="text" class="form-control" placeholder="Entrer le titre du réalisateur" 
-        name="rea" >
+        <input type="text" class="form-control" placeholder="Entrer le titre du réalisateur"
+         name="Realisateur">
 
       </div>
 
       <div class="form-group">
         <label>Acteurs principaux</label>
         <input type="text" class="form-control" placeholder="Entrer l'acteur" 
-        name="ac" >
+        name="Acteurs">
 
       </div>
 
       <label>Sortie du film:</label>
-      <input type="date" id="" name="dsf" >
-      
+      <input type="date" id="" name="Date_de_sortie">
+
 
 
       <div class="form-group">
         <label>Synopsis</label>
-        <textarea class="form-control" id="" 
-        name="Syn" rows="3" ></textarea>
+        <textarea class="form-control" id="" name="Synopsis" rows="3"></textarea>
 
         <label>Date entrée utilisateur:</label>
-        <input type="date" id="" name="deu">
-      
+        <input type="date" id="" name="Date_entree_ut">
+
 
         <label>date sortie utilisateur:</label>
-        <input type="date" id="" name="dsu" >
-      
+        <input type="date" id="" name="Date_sortie_ut">
 
-        <button type="submit" class="btn btn-primary" name="submit"
-        >Submit</button>
+
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 
   </div>
-  </body>
+</body>
 
 </html>
