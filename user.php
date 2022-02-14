@@ -53,6 +53,7 @@
 ?>
   <table id="customers">
   <tr>
+      <th>ID</th>      
       <th>Titre du film</th>
       <th  >Acteurs</th>
       <th >Date de sortie</th>
@@ -64,7 +65,7 @@
   <tr>
   
 
-        
+    <td><?php echo $col['id'] ?></td>   
     <td><?php echo $col['Titre_du_film'] ?></td>
     <td><?php echo $col['Acteurs'] ?> </td>
     <td><?php echo $col['Date_de_sortie'] ?></td>
@@ -73,14 +74,25 @@
     <td><?php echo $col['Date_entree_ut'] ?></td>
     <td><?php echo $col['Date_sortie_ut'] ?></td>
   </tr>
+  <td>
+<form  method="POST" action="delete.php">
 
+<button><a href="" class="btn btn-primary" class="text-light"
+>modifier</a></button>
+
+<button type="submit" name="delete_id" value="<?php echo $col['id']; ?>" 
+
+class="btn btn-danger"  class="text-light" 
+>supprimer</button>
+
+</form>
+</td>
   <?php
 
 }
 
 ?>
 
- 
 </table> 
 </body>
 </html>

@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
   $namerealisateur = $_POST['Realisateur'];
   $nameacteurs = $_POST['Acteurs'];
   $datedesortie = date('Y-m-d', strtotime($_POST['Date_de_sortie']));
-
+ 
   $synopsis = $_POST['Synopsis'];
 
   $dateentreeutilisateur = date('Y-m-d', strtotime($_POST['Date_entree_ut']));
@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
 
   $sql = "INSERT INTO
    programmation (
+     
      `Titre_du_film`,
      `Acteurs`,
      `Realisateur`,
@@ -23,6 +24,7 @@ if (isset($_POST['submit'])) {
      `Date_sortie_ut`
     )
   VALUES ( 
+    
     :namefilm,
     :nameacteurs,
     :namerealisateur,
