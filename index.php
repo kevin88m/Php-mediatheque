@@ -5,9 +5,9 @@ if (isset($_POST['submit'])) {
   $namerealisateur = $_POST['Realisateur'];
   $nameacteurs = $_POST['Acteurs'];
   $datedesortie = date('Y-m-d', strtotime($_POST['Date_de_sortie']));
- 
+  
   $synopsis = $_POST['Synopsis'];
-
+  
   $dateentreeutilisateur = date('Y-m-d', strtotime($_POST['Date_entree_ut']));
   $datedesortieutilisateur = date('Y-m-d', strtotime($_POST['Date_sortie_ut']));
 
@@ -66,25 +66,22 @@ if (isset($_POST['submit'])) {
 
 <body>
   <div class="container my-5">
-    <form method="post">
+    <form method="post" action="index.php">
 
       <div class="form-group">
         <label>Titre du film</label>
-        <input type="text" class="form-control" placeholder="Entrer le titre du film" 
-        name="Titre_du_film">
+        <input type="text" class="form-control" placeholder="Entrer le titre du film" name="Titre_du_film">
 
       </div>
       <div class="form-group">
         <label>Réalisateur</label>
-        <input type="text" class="form-control" placeholder="Entrer le titre du réalisateur"
-         name="Realisateur">
+        <input type="text" class="form-control" placeholder="Entrer le titre du réalisateur" name="Realisateur">
 
       </div>
 
       <div class="form-group">
         <label>Acteurs principaux</label>
-        <input type="text" class="form-control" placeholder="Entrer l'acteur" 
-        name="Acteurs">
+        <input type="text" class="form-control" placeholder="Entrer l'acteur" name="Acteurs">
 
       </div>
 

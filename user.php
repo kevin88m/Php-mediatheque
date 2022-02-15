@@ -75,13 +75,17 @@
     <td><?php echo $col['Date_sortie_ut'] ?></td>
   </tr>
   <td>
-<form  method="POST" action="delete.php">
+<form  method="POST" action="update.php">
 
-<button><a href="" class="btn btn-primary" class="text-light"
->modifier</a></button>
+<button   class="btn btn-primary" class="text-light" name="bt-update_id" 
+value="<?php echo $col['id']; ?>"
+>modifier</button>
+</form>
 
-<button type="submit" name="delete_id" value="<?php echo $col['id']; ?>" 
+<form  method="POST" action="delete.php"> 
 
+<button name="bt-delete_id" value="<?php echo $col['id']; ?>"
+  
 class="btn btn-danger"  class="text-light" 
 >supprimer</button>
 

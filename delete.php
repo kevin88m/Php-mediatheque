@@ -1,9 +1,9 @@
 <?php
     include 'connect.php';
 
-    if(isset($_POST['delete_id']))
+    if(isset($_POST['bt-delete_id']))
     {
-    $id=$_POST['delete_id'];
+    $id=$_POST['bt-delete_id'];
 
 
     $stmt= $pdo->prepare('SELECT * FROM programmation WHERE id =:id');
