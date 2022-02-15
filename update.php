@@ -1,12 +1,13 @@
 <?php
 include "connect.php";
 
-if(isset($_POST['update_id']))
+if(isset($_POST['bt-update_id']))
 
 
 {
 
-        $id = $_POST['update_id'];
+        $id = $_POST['bt-update_id'];
+        echo "<h1>modifier" .$id. "</h1>";
         $stmt=$pdo->prepare('SELECT * FROM programmation WHERE id=:id');
         $stmt->bindParam(':id',$id);
         $stmt->execute( );
@@ -19,15 +20,15 @@ if(isset($_POST['update_id']))
 if (isset($_POST['bt-update_id'])){
 
 $stmt = $pdo->prepare('UPDATE programmation SET 
-Titre_du_film=:namefilm,,
+Titre_du_film=:namefilm,
 Acteurs=:nameacteurs,
-Date_de_sortie=:datedesortie,,
+Date_de_sortie=:datedesortie,
 Synopsis= :synopsis,
 Realisateur= :namerealisateur,
 Date_entree_ut=:dateentreeutilisateur,
-Date_sortie_ut=:datesortieutilisateur
-id=:id,
- WHERE 1');
+Date_sortie_ut=:datesortieutilisateur,
+id=:id
+ WHERE   1');
 
     $stmt->bindParam(':id',$id);
     $stmt->bindParam(':namefilm', $namefilm);
@@ -38,5 +39,7 @@ id=:id,
     $stmt->bindParam(':dateentreeutilisateur', $dateentreeutilisateur);
     $stmt->bindParam(':datesortieutilisateur', $datedesortieutilisateur);
     $stmt->execute();
+   
 }
 ?>
+

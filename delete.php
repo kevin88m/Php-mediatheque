@@ -15,7 +15,7 @@
     $stmt = $pdo->prepare('DELETE FROM programmation WHERE id = :id');
     $stmt->bindParam(':id',$id);
     $stmt->execute();
-
+        
     header("location:user.php");
 
     }  
