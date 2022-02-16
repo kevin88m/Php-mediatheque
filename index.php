@@ -33,6 +33,24 @@ if (isset($_POST['submit'])) {
     :dateentreeutilisateur,
     :datesortieutilisateur
   )";
+  if($_POST['submit']|| 
+      $_POST['Titre_du_film']||
+      $_POST['Realisateur']||
+      $_POST['Acteurs']||
+      $_POST['Date_entree_ut']||
+      $_POST['Date_de_sortie']||
+      $_POST['Synopsis']||
+      $_POST['Date_sortie_ut']
+
+      )
+  {
+      echo "<div class='alert alert-success'>l'ajout a réussi.</div>";
+      echo "<a  class='btn btn-md btn-danger' href='user.php'>RETOUR </a>";
+  }
+  else{
+      echo "<div class='alert alert-danger'>Echec de l'ajout.</div>";
+      echo "<a  class='btn btn-md btn-danger' href='user.php'>RETOUR</a>";
+  }
 
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':namefilm', $namefilm);
@@ -46,8 +64,8 @@ if (isset($_POST['submit'])) {
   $stmt->execute();
 }
 
-
 ?>
+
 
 
 <!doctype html>
@@ -101,8 +119,10 @@ if (isset($_POST['submit'])) {
         <label>date sortie utilisateur:</label>
         <input type="date" id="" name="Date_sortie_ut">
 
-
-        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+  
+       
+        <button type="submit" class="btn btn-primary" name="submit">Soumettre</button>
+        <a href='user.php' class='btn btn-danger'>retour à la liste </a>
     </form>
 
   </div>
